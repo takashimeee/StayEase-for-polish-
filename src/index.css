@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@layer base {
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+}
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Fraunces", Georgia, serif;
+  --color-cream: #f6eee1;
+  --color-ink: #2c3b36;
+  --color-forest: #1e4740;
+  --color-forest-dark: #163a34;
+  --color-coral: #e8794f;
+  --color-coral-dark: #db6a3e;
+  --color-mint: #eaf3f1;
+  --color-sand: #e7decd;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+}

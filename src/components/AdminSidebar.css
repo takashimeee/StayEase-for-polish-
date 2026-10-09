@@ -1,0 +1,119 @@
+.admin-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  min-width: 220px;
+  background: #1e3d38;
+  color: #cfe3de;
+  padding: 24px 16px;
+  box-sizing: border-box;
+}
+
+.admin-sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 32px;
+  padding-left: 4px;
+}
+
+.admin-sidebar__logo {
+  width: 22px;
+  height: 22px;
+  color: #6fcf9e;
+}
+
+.admin-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.admin-sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #a9c7bf;
+  font-size: 0.92rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.admin-sidebar__link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+}
+
+.admin-sidebar__link--active {
+  background: #ffffff;
+  color: #e0703f;
+  font-weight: 600;
+}
+
+.admin-sidebar__link--active .admin-sidebar__icon {
+  color: #e0703f;
+}
+
+.admin-sidebar__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.admin-sidebar__user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-sidebar__avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #6fcf9e;
+  color: #10241f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.admin-sidebar__user-name {
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.admin-sidebar__user-role {
+  color: #93b3ab;
+  font-size: 0.75rem;
+}
+
+/* Keep the sidebar one screen tall so Log out is always visible */
+.admin-sidebar { position: sticky; top: 0; height: 100vh; flex-shrink: 0; overflow-y: auto; }
+
+.admin-sidebar__footer { margin-top: auto; display: flex; flex-direction: column; gap: 12px; }
+
+.admin-sidebar__logout {
+  display: flex; align-items: center; gap: 10px; width: 100%;
+  padding: 10px 14px; border-radius: 10px; cursor: pointer;
+  font: inherit; font-size: 14px; color: rgba(255, 255, 255, 0.85);
+  background: transparent; border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.admin-sidebar__logout:hover { background: rgba(232, 147, 92, 0.16); border-color: #e8935c; color: #fff; }
+.admin-sidebar__logout:focus-visible { outline: 2px solid #e8935c; outline-offset: 2px; }

@@ -1,0 +1,360 @@
+.analytics-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f1e8;
+}
+
+.analytics-page {
+  flex: 1;
+  padding: 32px 40px 56px;
+  color: #1f2a24;
+}
+
+/* Header */
+
+.analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.analytics-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1f4d3d;
+  margin: 0 0 4px;
+}
+
+.analytics-header p {
+  margin: 0;
+  color: #8a8471;
+  font-size: 14px;
+}
+
+.analytics-header__controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.range-tabs {
+  display: flex;
+  background: #ffffff;
+  border: 1px solid #e7e1d2;
+  border-radius: 10px;
+  padding: 4px;
+  gap: 2px;
+}
+
+.range-tab {
+  border: none;
+  background: transparent;
+  padding: 8px 14px;
+  font-size: 13px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #5c5648;
+}
+
+.range-tab.is-active {
+  background: #1f4d3d;
+  color: #ffffff;
+}
+
+.export-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #1f4d3d;
+  background: #ffffff;
+  color: #1f4d3d;
+  padding: 9px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.export-btn:hover {
+  background: #1f4d3d;
+  color: #ffffff;
+}
+
+/* Stat cards */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 1px 2px rgba(31, 42, 36, 0.05);
+}
+
+.stat-card__label {
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: #9a947f;
+}
+
+.stat-card__value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2a24;
+}
+
+.stat-card__delta {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.stat-card__delta.is-positive {
+  color: #2f8f5b;
+}
+
+.stat-card__delta.is-negative {
+  color: #c9573f;
+}
+
+/* Panels & chart grid */
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.panel {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px 24px;
+  box-shadow: 0 1px 2px rgba(31, 42, 36, 0.05);
+}
+
+.panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.panel__header h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1f4d3d;
+  margin: 0;
+}
+
+.legend-inline {
+  display: flex;
+  gap: 14px;
+}
+
+.legend-dot {
+  font-size: 12px;
+  color: #8a8471;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-dot::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-dot--green::before {
+  background: #1f4d3d;
+}
+
+.legend-dot--orange::before {
+  background: #e8935c;
+}
+
+.legend-dot--teal::before {
+  background: #4c9a83;
+}
+
+/* Revenue by room type */
+
+.room-revenue-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.room-revenue-row__top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #1f2a24;
+}
+
+.room-revenue-row__top span:last-child {
+  font-weight: 600;
+  color: #1f4d3d;
+}
+
+.room-revenue-row__track {
+  height: 8px;
+  background: #efe9db;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.room-revenue-row__fill {
+  height: 100%;
+  border-radius: 6px;
+}
+
+/* Donut / booking source */
+
+.donut-panel {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.donut-wrap {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+}
+
+.donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.donut-center strong {
+  font-size: 20px;
+  color: #1f4d3d;
+}
+
+.donut-center span {
+  font-size: 11px;
+  color: #8a8471;
+}
+
+.donut-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.donut-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.donut-legend .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.donut-legend__name {
+  flex: 1;
+  color: #1f2a24;
+}
+
+.donut-legend__value {
+  color: #8a8471;
+  font-weight: 600;
+}
+
+/* Top performing rooms table */
+
+.rooms-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.rooms-table th {
+  text-align: left;
+  color: #9a947f;
+  font-weight: 600;
+  font-size: 11px;
+  padding: 0 12px 10px;
+  border-bottom: 1px solid #efe9db;
+}
+
+.rooms-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #f2eee3;
+  color: #1f2a24;
+}
+
+.rooms-table tr:last-child td {
+  border-bottom: none;
+}
+
+.cell-revenue {
+  color: #2f8f5b;
+  font-weight: 600;
+}
+
+.star-icon {
+  color: #e8935c;
+  fill: #e8935c;
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .analytics-page {
+    padding: 20px;
+  }
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+  .rooms-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
