@@ -33,15 +33,31 @@ const TAG_LABELS = {
 };
 const tagLabel = (t) => TAG_LABELS[t] || t.charAt(0).toUpperCase() + t.slice(1);
 
+const dishPhoto = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=320&q=80`;
+const DISH_IMAGES = [
+  { match: ["filipino breakfast", "longsilog", "tapsilog"], image: dishPhoto("photo-1525351484163-7529414344d8") },
+  { match: ["continental breakfast"], image: dishPhoto("photo-1490645935967-10de6ba17061") },
+  { match: ["healthy start bowl", "oatmeal", "yogurt", "fruit bowl"], image: dishPhoto("photo-1512621776951-a57141f2eefd") },
+  { match: ["mango coconut pancakes", "pancake"], image: dishPhoto("photo-1528207776546-365bb710ee93") },
+  { match: ["ube pandesal", "pandesal"], image: dishPhoto("photo-1506084868230-bb9d95c24759") },
+];
+const DEFAULT_DISH_IMAGE = dishPhoto("photo-1525351484163-7529414344d8");
+const getDishImage = (item) => {
+  if (item.image) return item.image;
+  const name = item.name.toLowerCase();
+  return DISH_IMAGES.find(({ match }) => match.some((term) => name.includes(term)))?.image || DEFAULT_DISH_IMAGE;
+};
+
 function Dish({ item }) {
   const [imgFailed, setImgFailed] = useState(false);
-  const showImage = item.image && !imgFailed;
+  const image = getDishImage(item);
+  const showImage = !imgFailed;
 
   return (
     <li className={cx("flex gap-4", !item.available && "opacity-55")}>
       {showImage && (
         <img
-          src={item.image}
+          src={image}
           alt={item.name}
           loading="lazy"
           onError={() => setImgFailed(true)}
@@ -94,9 +110,12 @@ function MenuSkeleton() {
           <div className="mb-8 h-8 w-56 animate-pulse rounded-lg bg-sand" />
           <div className="grid gap-x-14 gap-y-8 md:grid-cols-2">
             {[0, 1, 2, 3].map((n) => (
-              <div key={n} className="space-y-2">
-                <div className="h-5 w-3/4 animate-pulse rounded bg-sand" />
-                <div className="h-4 w-full animate-pulse rounded bg-sand/70" />
+              <div key={n} className="flex gap-4">
+                <div className="h-20 w-20 shrink-0 animate-pulse rounded-xl bg-sand" />
+                <div className="flex-1 space-y-2">
+                  <div className="h-5 w-3/4 animate-pulse rounded bg-sand" />
+                  <div className="h-4 w-full animate-pulse rounded bg-sand/70" />
+                </div>
               </div>
             ))}
           </div>
